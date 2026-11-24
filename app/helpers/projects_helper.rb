@@ -38,7 +38,7 @@ module ProjectsHelper
     "project_status" => "project_status_code",
     "required_disk_space" => nil,
     "status_explanation" => nil
-  }.freeze
+  }.merge(Projects::WorkPackageStatistics::ATTRIBUTES.to_h { [it.to_s, nil] }).freeze
 
   # Just like sort_header tag but removes sorting by
   # lft from the sort criteria as lft is mutually exclusive with
